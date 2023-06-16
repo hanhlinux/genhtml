@@ -93,7 +93,6 @@ proc WriteComplete(t: string, con: string, file: File) =
     of "desc":
       useDot = "."
       element = "p"
-      title = "<b>Description: </b>"
     of "warn":
       useDot = "."
       element = "p"
@@ -126,7 +125,7 @@ proc WriteComplete(t: string, con: string, file: File) =
 
     if t != "name" and t != "namenav" and t != "syntax":
       sentence = replace(sentence, "``", "</span>")
-      sentence =replace(sentence, "`", "<span class=\"inline_word\">")
+      sentence = replace(sentence, "`", "<span class=\"inline_word\">")
 
     write(file, sentence)
  
@@ -216,10 +215,7 @@ for f in files:
   let rightExt = checkExt(f)
   if (rightExt == false):
     continue 
-  
-  # name will be <h3>name</h3>
-  # where,desc,warn,note will be <p><b>Title</b>where</p>
-  # syntax will be <p style="background-color:#1f1f1f;color=#ffffff"></p>
+
   let dict     = loadConfig(f);
   let name     = dict.getSectionValue("", "name")
   let where    = dict.getSectionValue("", "where")
