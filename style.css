@@ -1,0 +1,63 @@
+body {
+	font-family: "Lato";
+}
+
+@media screen and (min-width: 721px) {
+	.sidenav {
+		position: fixed;
+		width: 320px;
+		height: 100%;
+		top: 0;
+		left: 0;
+		z-index: 1;
+		padding-top: 20px;
+		background-color: #ffffff;
+	}
+
+	.sidenav a {
+		display: block;
+		padding: 5px 5px 5px 10px;	
+		text-decoration: none;
+		color: #1f1f1f;
+		font-size: 15px;
+	}
+
+	.doc {
+		margin-left: 320px;
+		font-size: 20px;
+		overflow-x: hidden;
+	}
+
+	.doc h3 {
+		font-size: 30px;
+	}
+}
+
+@media screen and (max-width: 720px) {
+	.sidenav { 
+		width: 100%;
+		height: auto;
+		background-color: #ffffff;
+	}
+
+	.sidenav a {
+		display: block;
+		padding: 5px 5px 5px 10px;
+		color: #1f1f1f;
+		text-decoration: none;
+		font-size: 10px;
+	}
+
+	.doc {
+		font-size: 10px;
+	}
+
+	.doc h3{
+		font-size: 15px;
+	}
+}
+
+.doc p {
+		word-wrap: break-word;
+	}
+
