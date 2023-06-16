@@ -41,7 +41,7 @@ proc help() =
   fmthelp("-h | --help", "Print this message")
   fmthelp("-d | --dir=[dir]", "Path to directory which contains the files")
   echo "style.css can be used to apply style for HTML file(s).There is an example\n"
-  echo "For more details, read EXPLAINATION.md" 
+  echo "For more details, read EXPLANATION.md" 
   quit(0)
 
 proc checkExt(f: string): bool =
