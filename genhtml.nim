@@ -1,6 +1,5 @@
 import std/parsecfg
 import std/strutils
-#import std/streams
 import std/os
 import std/sugar
 import std/parseopt
@@ -230,10 +229,6 @@ for f in files:
   WriteComplete("syntax", syntax, docP)
   WriteComplete("warn", warn, docP)
   WriteComplete("note", note, docP)
-  echo name
-  echo where
-  echo desc
-  echo syntax
 
 tab = 4
 End("div", snP)
