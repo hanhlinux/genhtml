@@ -1,0 +1,4 @@
+name=echo
+where=system
+desc="Print to stdout"
+syntax="proc echo(x: varargs[typed, `$`])"

@@ -1,0 +1,4 @@
+name="shr"
+where=system
+desc="tao deo biet dmm"
+syntax="proc `shr`(x: uint32; y: SomeInteger): uint32"

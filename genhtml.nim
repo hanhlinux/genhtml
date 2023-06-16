@@ -1,5 +1,6 @@
 import std/parsecfg
 import std/strutils
+#import std/streams
 import std/os
 import std/sugar
 import std/parseopt
@@ -41,7 +42,7 @@ proc help() =
   fmthelp("-h | --help", "Print this message")
   fmthelp("-d | --dir=[dir]", "Path to directory which contains the files")
   echo "style.css can be used to apply style for HTML file(s).There is an example\n"
-  echo "For more details, read EXPLANATION.md" 
+  echo "For more details, read EXPLAINATION.md" 
   quit(0)
 
 proc checkExt(f: string): bool =
@@ -105,7 +106,7 @@ proc WriteComplete(t: string, con: string, file: File) =
       element = "p"
       title = "<b>Where: </b>"
     of "syntax":
-      element = "p style=\"background-color: #1f1f1f; color: #ffffff\""
+      element = "p class=\"terminal\""
     else:
       die("Unknown type")
 
@@ -121,6 +122,11 @@ proc WriteComplete(t: string, con: string, file: File) =
         first = false
       else:
         sentence &= tabAll & p & useDot & "\n"
+
+
+    if t != "name" and t != "namenav" and t != "syntax":
+      sentence = replace(sentence, "``", "</span>")
+      sentence =replace(sentence, "`", "<span class=\"inline_word\">")
 
     write(file, sentence)
  
