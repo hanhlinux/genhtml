@@ -1,5 +1,6 @@
 import std/parsecfg
 import std/strutils
+#import std/streams
 import std/os
 import std/sugar
 import std/parseopt
@@ -82,6 +83,7 @@ proc WriteComplete(t: string, con: string, file: File) =
       sentence: string
       useDot : string
       title: string
+      first: bool = true
     
     case t
     of "name":
@@ -115,7 +117,11 @@ proc WriteComplete(t: string, con: string, file: File) =
       tabAll &= "  "
 
     for p in split(con, "."):
-      sentence &= tabAll & title & p & useDot & "\n"
+      if first == true:
+        sentence &= tabAll & title & p & useDot & "\n"
+        first = false
+      else:
+        sentence &= tabAll & p & useDot & "\n"
 
     write(file, sentence)
  
@@ -224,6 +230,10 @@ for f in files:
   WriteComplete("syntax", syntax, docP)
   WriteComplete("warn", warn, docP)
   WriteComplete("note", note, docP)
+  echo name
+  echo where
+  echo desc
+  echo syntax
 
 tab = 4
 End("div", snP)
